@@ -55,7 +55,23 @@
 <script>
     export default {
         name: 'opinion-admin',
-
+        sockets: {
+            connect: function () {
+                console.log('socket connected')
+            },
+            serverEmit: function (val) {
+                console.log(val)
+                const option = {
+                    title: '腾讯新闻',
+                    body: val.title
+                }
+                const myNotification = new Notification(option.title, option)
+                console.log(myNotification)
+                myNotification.onclick = () => {
+                    this.$electron.shell.openExternal(val.url)
+                }
+            }
+        },
         data() {
             return {
                 winHeight: document.documentElement.clientHeight

@@ -17,7 +17,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "opinion-admin",
+    "productName": "舆情管理系统",
     "appId": "com.example.yourapp",
     "directories": {
       "output": "build"
@@ -58,6 +58,7 @@
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
     "vue-router": "^3.0.1",
+    "vue-socket.io": "^3.0.7",
     "vuex": "^3.0.1",
     "vuex-electron": "^1.0.0"
   },

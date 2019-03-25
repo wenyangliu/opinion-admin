@@ -3,7 +3,17 @@
 
         <div class="main_top">
             <div class="top_charts">
+                <div class="pie_charts">
+                    <ve-pie :data="pieData"></ve-pie>
+                </div>
+                <div class="histogram_charts">
+                    <ve-histogram :data="histogramData"></ve-histogram>
+                </div>
             </div>
+        </div>
+
+        <div class="line_charts">
+            <ve-line :data="lineData"></ve-line>
         </div>
         <!-- 登录页面 -->
 
@@ -36,7 +46,37 @@
         data() {
             return {
                 dialogFormVisible: false,
-                userinfo: {}
+                userinfo: {},
+                pieData: {
+                    columns: ['关键词', '数量'],
+                    rows: [
+                        {'关键词': '腾讯', '数量': 1393},
+                        {'关键词': '阿里', '数量': 3530},
+                        {'关键词': '支付宝', '数量': 2923},
+                        {'关键词': '蚂蚁花呗', '数量': 1723},
+                        {'关键词': '腾讯云', '数量': 3792},
+                        {'关键词': '阿里云', '数量': 4593}
+                    ]
+                },
+                histogramData: {
+                    columns: ['关键词', '全面', '负面'],
+                    rows: [
+                        {'关键词': '腾讯', '全面': 1393, '负面': 393},
+                        {'关键词': '阿里', '全面': 3530, '负面': 193},
+                        {'关键词': '支付宝', '全面': 2923, '负面': 93},
+                    ]
+                },
+                lineData: {
+                    columns: ['日期', '阿里', '腾讯', '百度'],
+                    rows: [
+                        {'日期': '03-08', '阿里': 1393, '腾讯': 1393, '百度': 1393},
+                        {'日期': '03-09', '阿里': 3530, '腾讯': 2393, '百度': 3393},
+                        {'日期': '03-10', '阿里': 2923, '腾讯': 1693, '百度': 3993},
+                        {'日期': '03-11', '阿里': 1723, '腾讯': 3393, '百度': 4393},
+                        {'日期': '03-12', '阿里': 3792, '腾讯': 4393, '百度': 5393},
+                        {'日期': '03-13', '阿里': 4593, '腾讯': 5393, '百度': 6393}
+                    ]
+                }
             }
         },
         //刚加载页面的时候
@@ -75,5 +115,10 @@
 </script>
 
 <style lang="scss">
-
+    .top_charts {
+        display: flex;
+        .pie_charts, .histogram_charts {
+            width: 50%;
+        }
+    }
 </style>
